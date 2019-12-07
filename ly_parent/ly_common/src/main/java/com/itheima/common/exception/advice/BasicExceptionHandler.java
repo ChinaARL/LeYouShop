@@ -19,17 +19,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class BasicExceptionHandler {
     /**
      * ResponseEntity 封装返回状态码 ，数据结果对象
+     *
      * @param e exception
      * @return json
      */
     //当捕获到异常处理
     @ExceptionHandler(LyException.class)
-    public ResponseEntity<ExceptionResult> errorRuntime(LyException e){
+    public ResponseEntity<ExceptionResult> errorRuntime(LyException e) {
         return ResponseEntity.status(e.getStatus()).body(new ExceptionResult(e.getStatus(), e.getMessage()));
     }
 
     @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<ExceptionResult> errorRuntime(RuntimeException e){
+    public ResponseEntity<ExceptionResult> errorRuntime(RuntimeException e) {
         return ResponseEntity.status(500).body(new ExceptionResult(500, e.getMessage()));
     }
 }

@@ -13,11 +13,12 @@ import java.util.Date;
  */
 @Data
 public class ExceptionResult {
-
+    //返回对象 三属性 状态/消息/时间戳
     private Integer status;
     private String message;
     private Date timestamp;
 
+    //通过 状态/消息 进行构造
     public ExceptionResult(Integer status, String message) {
         this.status = status;
         this.message = message;
