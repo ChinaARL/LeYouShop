@@ -13,4 +13,20 @@ zuul:
     item-service:
       path: /item/**
       serviceId: item-service
+ly:
+  cors:
+    allowedOrigins:
+      - http://manage.leyou.com
+    allowedCredentials: true
+    allowedHeaders:
+      - "*"
+    allowedMethods:
+      - GET
+      - POST
+      - DELETE
+      - PUT
+      - OPTIONS
+      - HEAD
+    maxAge: 360000
+    filterPath: "/**"
 
