@@ -15,6 +15,7 @@
         <module>ly_item_parent/ly_item_service</module>
         <module>ly_item_parent/ly_item_interface</module>
         <module>ly_common</module>
+        <module>ly_upload</module>
     </modules>
     <packaging>pom</packaging>
     <parent>
@@ -31,6 +32,7 @@
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <mapper.starter.version>2.1.5</mapper.starter.version>
         <mysql.version>5.1.47</mysql.version>
+<!--        <mysql.version>8.0.18</mysql.version>-->
         <pageHelper.starter.version>1.2.10</pageHelper.starter.version>
         <leyou.latest.version>1.0.0-SNAPSHOT</leyou.latest.version>
     </properties>

@@ -30,9 +30,10 @@ public class CategoryController {
      * @param pId 上级分类ID
      * @return
      */
-    @GetMapping("/category/of/parent")
+    @GetMapping(value = "/category/of/parent") //,produces = "application/json;charset=UTF-8"
     public ResponseEntity<List<CategoryDTO>> queryByParentId(@RequestParam("pid") Long pId) {
         List<CategoryDTO> list = categoryService.queryByParentId(pId);
+        System.out.println(list);
         return ResponseEntity.ok(list);
     }
 

@@ -1,7 +1,11 @@
 package com.itheima.item.mapper;
 
 import com.itheima.item.pojo.Brand;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.Mapper;
+
+import java.util.List;
 
 /**
  * @author 高策
@@ -11,4 +15,9 @@ import tk.mybatis.mapper.common.Mapper;
  * @Copyright © 2018-2019 黑马程序员（顺义）校区
  */
 public interface BrandMapper extends Mapper<Brand> {
+
+
+    @Transactional
+    int insertCategoryBrands(@Param("bid") Long id, @Param("cids") List<Long> categoryIds);
+
 }

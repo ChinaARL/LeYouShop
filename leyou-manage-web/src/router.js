@@ -32,6 +32,8 @@ export default new Router({
         route("/user/statistics",'/item/Statistics',"Statistics"),
         route("/trade/promotion",'/trade/Promotion',"Promotion"),
         route("/auth/services",'/auth/Services',"Services"),
+        route("/test/list",'/test/list',"TestServices"),
+        route("/test/mybrand",'/test/MyBrand',"mybrand"),
       ]
     }
   ]

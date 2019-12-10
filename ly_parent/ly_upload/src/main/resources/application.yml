@@ -1,0 +1,14 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: upload-service
+  # SpringMVC 默认显示文件大小为：1MB
+  servlet:
+    multipart:
+      max-file-size: 5MB
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+

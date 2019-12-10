@@ -5,7 +5,8 @@ spring:
     name: item-service
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://39.106.187.252:3306/leyou?characterEncoding=utf-8
+    url: jdbc:mysql://39.106.187.252:3306/leyou?characterEncoding=utf-8&useSSL=false
+#    url: jdbc:mysql://127.0.0.1:3308/leyou?characterEncoding=utf-8&serverTimezone=UTC
     username: root
     password: 541590
 mybatis:
@@ -17,3 +18,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:10086/eureka
+logging:
+  level:
+    com.itheima: debug

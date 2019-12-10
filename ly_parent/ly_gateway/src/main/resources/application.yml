@@ -13,6 +13,9 @@ zuul:
     item-service:
       path: /item/**
       serviceId: item-service
+    upload-service:
+      path: /upload/**
+      serviceId: upload-service
 ly:
   cors:
     allowedOrigins:

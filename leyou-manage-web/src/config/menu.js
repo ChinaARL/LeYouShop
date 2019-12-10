@@ -46,6 +46,15 @@ const menus = [
       { title: "人员管理", path: "/member" },
       { title: "服务管理", path: "/services" }
     ]
+  },
+  {
+    action: "settings",
+    title: "测试管理",
+    path:"/test",
+    items: [
+      { title: "测试管理", path: "/list" },
+      { title: "品牌管理", path: "/mybrand" }
+    ]
   }
 ]
 

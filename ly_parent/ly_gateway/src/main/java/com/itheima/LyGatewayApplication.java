@@ -2,6 +2,7 @@ package com.itheima;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 /**
@@ -12,6 +13,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  * @Copyright © 2018-2019 黑马程序员（顺义）校区
  */
 @SpringBootApplication
+@EnableDiscoveryClient
 @EnableZuulProxy
 public class LyGatewayApplication {
     public static void main(String[] args) {
