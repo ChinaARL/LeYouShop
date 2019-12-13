@@ -67,15 +67,4 @@ public class BrandController {
         brandService.saveBrand(brandDTO, categoryIds);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-    //TODO 修改品牌
-    @PutMapping("/brand")
-    public void test() {
-
-    }
-
-    @GetMapping("/category/of/brand/")
-    public ResponseEntity<List<BrandDTO>> queryByBrandId(@RequestParam("id") Long brandId) {
-        List<BrandDTO> list = brandService.queryByBrandId(brandId);
-        return ResponseEntity.ok(list);
-    }
 }
