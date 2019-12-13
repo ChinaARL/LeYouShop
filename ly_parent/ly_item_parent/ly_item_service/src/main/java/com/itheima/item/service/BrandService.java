@@ -40,12 +40,12 @@ public class BrandService {
         Example example = new Example(Brand.class);
         //设置where部分
         Example.Criteria criteria = example.createCriteria();
-        if(StringUtils.isNotBlank(key)){
-            criteria.andLike("name", "%"+key+"%");
+        if (StringUtils.isNotBlank(key)) {
+            criteria.andLike("name", "%" + key + "%");
         }
-        if(StringUtils.isNotBlank(sortBy)){
+        if (StringUtils.isNotBlank(sortBy)) {
             //设置oder by nameDESC/ASC setOrderByClause:设置执行sql语句
-            example.setOrderByClause(sortBy+ (desc?" desc":" asc"));
+            example.setOrderByClause(sortBy + (desc ? " desc" : " asc"));
         }
         List<Brand> brandsList = brandMapper.selectByExample(example);
 
@@ -60,7 +60,8 @@ public class BrandService {
     }
 
     /**
-     *  1、向tb_brand表中新增品牌数据  2、想tb_category_brand（分类品牌中间表）新增若干条记录
+     * 1、向tb_brand表中新增品牌数据  2、想tb_category_brand（分类品牌中间表）新增若干条记录
+     *
      * @param brandDTO
      * @param categoryIds
      * @return
@@ -72,15 +73,31 @@ public class BrandService {
         //insertSelectiv 如果提交参数为null,会使用数据库默认值  创建时间 更新时间
 //        1、向tb_brand表中新增品牌数据
         int count = brandMapper.insertSelective(brand);
-        if(count!=1){
+        if (count != 1) {
             throw new LyException(ResponseCode.INSERT_OPERATION_FAIL);
         }
         //2、想tb_category_brand（分类品牌中间表）新增若干条记录
-        if(!CollectionUtils.isEmpty(categoryIds)){
+        if (!CollectionUtils.isEmpty(categoryIds)) {
             count = brandMapper.insertCategoryBrands(brand.getId(), categoryIds);
-            if(count!=categoryIds.size()){
+            if (count != categoryIds.size()) {
                 throw new LyException(ResponseCode.INSERT_OPERATION_FAIL);
             }
         }
+    }
+
+    public BrandDTO queryByBrandId(Long brandId) {
+        Brand brand = brandMapper.selectByPrimaryKey(brandId);
+        if (brand == null) {
+            throw new LyException(ResponseCode.BRAND_NOT_FOUND);
+        }
+        return BeanHelper.copyProperties(brand, BrandDTO.class);
+    }
+
+    public List<BrandDTO> queryByCategoryId(Long categoryId) {
+        List<Brand> brandList = brandMapper.queryByCategoryId(categoryId);
+        if (CollectionUtils.isEmpty(brandList)) {
+            throw new LyException(ResponseCode.BRAND_NOT_FOUND);
+        }
+        return BeanHelper.copyWithCollection(brandList, BrandDTO.class);
     }
 }

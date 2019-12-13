@@ -59,8 +59,8 @@ public class UploadService {
     }
 
     public Map<String, String> getSignature() {
-        String accessId = "LTAI4FojEhh6akU6xzDv5P5A"; // 请填写您的AccessKeyId。
-        String accessKey = "NmPlHITIL3JIZ851R0EObolho83D7m"; // 请填写您的AccessKeySecret。
+        String accessId = "LTAI4FqdktKYTr2wQcmm8pma"; // 请填写您的AccessKeyId。
+        String accessKey = "tp3y4fwIYBNP4hTtCZynlIYjqg231m"; // 请填写您的AccessKeySecret。
         String endpoint = "oss-cn-beijing.aliyuncs.com"; // 请填写您的 endpoint。
         String bucket = "chinaarl"; // 请填写您的 bucketname 。
         String host = "https://" + bucket + "." + endpoint; // host的格式为 bucketname.endpoint

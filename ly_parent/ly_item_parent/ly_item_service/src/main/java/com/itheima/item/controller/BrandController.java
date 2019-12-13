@@ -8,9 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.Id;
 import java.util.List;
 
 /**
@@ -61,8 +63,19 @@ public class BrandController {
      * 保存品牌- 1、保存品牌数据  2、保存分类品牌数据
      */
     @PostMapping("/brand")
-    public ResponseEntity<Void> saveBrand(BrandDTO brandDTO, @RequestParam("cids") List<Long> categoryIds){
+    public ResponseEntity<Void> saveBrand(BrandDTO brandDTO, @RequestParam("cids") List<Long> categoryIds) {
         brandService.saveBrand(brandDTO, categoryIds);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+    //TODO 修改品牌
+    @PutMapping("/brand")
+    public void test() {
+
+    }
+
+    @GetMapping("/category/of/brand/")
+    public ResponseEntity<List<BrandDTO>> queryByBrandId(@RequestParam("id") Long brandId) {
+        List<BrandDTO> list = brandService.queryByBrandId(brandId);
+        return ResponseEntity.ok(list);
     }
 }
