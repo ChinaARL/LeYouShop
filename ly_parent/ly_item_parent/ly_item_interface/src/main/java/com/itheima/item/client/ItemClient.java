@@ -1,22 +1,19 @@
 package com.itheima.item.client;
 
-import com.itheima.common.vo.PageResult;
-import com.itheima.item.dto.SkuDTO;
-import com.itheima.item.dto.SpecParamDTO;
-import com.itheima.item.dto.SpuDTO;
-import com.itheima.item.dto.SpuDetailDTO;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+        import com.itheima.common.vo.PageResult;
+        import com.itheima.item.dto.*;
+        import org.springframework.cloud.openfeign.FeignClient;
+        import org.springframework.http.ResponseEntity;
+        import org.springframework.web.bind.annotation.GetMapping;
+        import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
+        import java.util.List;
 
 @FeignClient("item-service")
 public interface ItemClient {
 
     /**
      * 商品SPU列表查询
-     *
      * @param key
      * @param saleable
      * @param page
@@ -33,7 +30,6 @@ public interface ItemClient {
 
     /**
      * 根据商品ID查询商品sku列表
-     *
      * @param spuId
      * @return
      */
@@ -50,10 +46,26 @@ public interface ItemClient {
 
     /**
      * 根据商品ID查询商品详情对象
-     *
      * @param spuId
      * @return
      */
     @GetMapping("/spu/detail")
     public SpuDetailDTO querySpuDetailBySpuId(@RequestParam("id") Long spuId);
+
+    /**
+     * 根据分类id集合获取分类集合
+     * @param categoryIds
+     * @return
+     */
+    @GetMapping("/category/list")
+    public List<CategoryDTO> queryCategoryListByIds(@RequestParam("ids") List<Long> categoryIds);
+
+
+    /**
+     * 根据品牌ID 集合 查询品牌集合
+     * @param brandIdList
+     * @return
+     */
+    @GetMapping("/brand/list")
+    public List<BrandDTO> queryBrandListByIds(@RequestParam("ids") List<Long> brandIdList);
 }
