@@ -16,6 +16,9 @@ zuul:
     upload-service:
       path: /upload/**
       serviceId: upload-service
+    search-service:
+      path: /search/**
+      serviceId: search-service
 ly:
   cors:
     allowedOrigins:
