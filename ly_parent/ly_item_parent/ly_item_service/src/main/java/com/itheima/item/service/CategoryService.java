@@ -12,15 +12,9 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
-/**
- * @author 高策
- * @version V1.0
- * @Package com.itheima.item.service
- * @date 2019/12/7 16:47
- * @Copyright © 2018-2019 黑马程序员（顺义）校区
- */
 @Service
 public class CategoryService {
+
     @Autowired
     private CategoryMapper categoryMapper;
 

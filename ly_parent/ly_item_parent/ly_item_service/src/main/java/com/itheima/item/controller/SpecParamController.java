@@ -22,7 +22,10 @@ public class SpecParamController {
      * @return
      */
     @GetMapping("/spec/params")
-    public ResponseEntity<List<SpecParamDTO>> querySpecParamByGroupId(@RequestParam(value = "gid", required = false) Long groupId, @RequestParam(value = "cid", required = false) Long categoryId){
-        return ResponseEntity.ok(specParamService.querySpecParamByGroupId(groupId, categoryId));
+    public ResponseEntity<List<SpecParamDTO>> querySpecParamByGroupId(
+            @RequestParam(value = "gid", required = false) Long groupId,
+            @RequestParam(value = "cid", required = false) Long categoryId,
+            @RequestParam(value = "searching",required = false) Boolean searching){
+        return ResponseEntity.ok(specParamService.querySpecParamByGroupId(groupId, categoryId, searching));
     }
 }

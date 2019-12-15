@@ -1,5 +1,6 @@
 package com.itheima.item.controller;
 
+import com.itheima.common.exception.enms.ResponseCode;
 import com.itheima.common.vo.PageResult;
 import com.itheima.item.dto.SkuDTO;
 import com.itheima.item.dto.SpuDTO;

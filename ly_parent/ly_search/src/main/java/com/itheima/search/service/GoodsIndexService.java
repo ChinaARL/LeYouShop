@@ -53,6 +53,7 @@ public class GoodsIndexService {
             skuList.add(map);
         }
         goods.setSkus(JsonUtils.toString(skuList));  //字符串 "[{id,title,price,image}，{id,title,price,image}]"
+
         goods.setPrice(skuDTOList.stream().map(SkuDTO::getPrice).collect(Collectors.toSet())); //为了将来排序 [1559,15220] set去重
         //规格参数
 
@@ -93,6 +94,12 @@ public class GoodsIndexService {
         goods.setSpecs(specs);
         return goods;
     }
+
+
+
+
+
+
 
     private String chooseSegment(Object value, SpecParamDTO p) {
         if (value == null || StringUtils.isBlank(value.toString())) {
