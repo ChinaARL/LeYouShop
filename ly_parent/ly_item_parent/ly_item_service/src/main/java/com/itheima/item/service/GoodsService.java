@@ -252,4 +252,12 @@ public class GoodsService {
             throw new LyException(ResponseCode.INSERT_OPERATION_FAIL);
         }
     }
+
+    public SpuDTO queryBySpuId(Long spuId) {
+        Spu spu = spuMapper.selectByPrimaryKey(spuId);
+        if(spu==null){
+            throw new LyException(ResponseCode.GOODS_NOT_FOUND);
+        }
+        return BeanHelper.copyProperties(spu, SpuDTO.class);
+    }
 }

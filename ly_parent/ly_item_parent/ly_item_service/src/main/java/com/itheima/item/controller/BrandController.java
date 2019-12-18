@@ -1,5 +1,6 @@
 package com.itheima.item.controller;
 
+import com.itheima.common.exception.enms.ResponseCode;
 import com.itheima.common.vo.PageResult;
 import com.itheima.item.dto.BrandDTO;
 import com.itheima.item.pojo.Brand;
@@ -7,10 +8,7 @@ import com.itheima.item.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -81,6 +79,16 @@ public class BrandController {
     @GetMapping("/brand/list")
     public ResponseEntity<List<BrandDTO>> queryBrandListByIds(@RequestParam("ids") List<Long> brandIdList){
         return ResponseEntity.ok(brandService.queryBrandListByIds(brandIdList));
+    }
+
+    /**
+     * 根据品牌ID 查询品牌对象
+     * @param brandId
+     * @return
+     */
+    @GetMapping("/brand/{id}")
+    public ResponseEntity<BrandDTO> queryBrandById(@PathVariable("id") Long brandId){
+        return ResponseEntity.ok(brandService.queryByBrandId(brandId));
     }
 
 }

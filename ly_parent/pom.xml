@@ -17,6 +17,7 @@
         <module>ly_common</module>
         <module>ly_upload</module>
         <module>ly_search</module>
+        <module>ly_page</module>
     </modules>
     <packaging>pom</packaging>
     <parent>

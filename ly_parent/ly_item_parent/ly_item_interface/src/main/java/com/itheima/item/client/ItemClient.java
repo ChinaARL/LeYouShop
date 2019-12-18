@@ -5,6 +5,7 @@ package com.itheima.item.client;
         import org.springframework.cloud.openfeign.FeignClient;
         import org.springframework.http.ResponseEntity;
         import org.springframework.web.bind.annotation.GetMapping;
+        import org.springframework.web.bind.annotation.PathVariable;
         import org.springframework.web.bind.annotation.RequestParam;
 
         import java.util.List;
@@ -68,4 +69,30 @@ public interface ItemClient {
      */
     @GetMapping("/brand/list")
     public List<BrandDTO> queryBrandListByIds(@RequestParam("ids") List<Long> brandIdList);
+
+    /**
+     * 根据商品ID查询商品SPU数据
+     * @param spuId
+     * @return
+     */
+    @GetMapping("/spu/{id}")
+    public SpuDTO queryBySpuId(@PathVariable("id") Long spuId);
+
+
+    /**
+     * 根据品牌ID 查询品牌对象
+     * @param brandId
+     * @return
+     */
+    @GetMapping("/brand/{id}")
+    public BrandDTO queryBrandById(@PathVariable("id") Long brandId);
+
+
+    /***
+     * 根据分类Id查询 规格组列表，不包含规格参数
+     * @param categoryId
+     * @return
+     */
+    @GetMapping("/spec/groups/of/category")
+    public List<SpecGroupDTO> queryByCategoryId(@RequestParam("id") Long categoryId);
 }
